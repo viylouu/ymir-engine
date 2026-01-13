@@ -60,12 +60,12 @@ init :: proc(title: cstring, width,height: i32, flags: int = WF_DEFAULT) {
 
     if const.wflag_pixel_perfect do const.wflag_const_scale = true
 
-    WindowHint(RESIZABLE,             i32(const.wflag_resizable))
+    WindowHint(RESIZABLE,             const.wflag_resizable? TRUE : FALSE)
     WindowHint(OPENGL_FORWARD_COMPAT, TRUE)
 	WindowHint(OPENGL_PROFILE,        OPENGL_CORE_PROFILE)
     WindowHint(CONTEXT_VERSION_MAJOR, const.GL_MAJOR)
     WindowHint(CONTEXT_VERSION_MINOR, const.GL_MINOR)
-    WindowHint(FLOATING,              TRUE)
+    //WindowHint(FLOATING,              TRUE)
 
     const.__handle = CreateWindow(width,height,title, nil,nil)
     error.critical("the window is being silly, wattesigma", const.__handle == nil)
@@ -75,7 +75,7 @@ init :: proc(title: cstring, width,height: i32, flags: int = WF_DEFAULT) {
     SetFramebufferSizeCallback(__handle, callback.__fbcb_size)
 
     gl.load_up_to(int(const.GL_MAJOR), const.GL_MINOR, gl_set_proc_address)
-    fmt.println("gl ver: ", gl.GetString(gl.VERSION))
+    //fmt.println("gl ver: ", gl.GetString(gl.VERSION))
 
     if const.wflag_imgui {
         im.CHECKVERSION()
