@@ -18,7 +18,7 @@ val_col:   [3]f32
 main :: proc() {
     using eng
 
-    init("imgui example",800,600, WF_DRAW_LIB | WF_IMGUI)
+    init("imgui example",800,600)
     defer end()
 
     util.vsync(true)

@@ -88,8 +88,8 @@ init :: proc(title: cstring, width,height: i32, flags: int = WF_DEFAULT) {
         buf: [2]byte
         imgui_ver_string = strings.concatenate ([]string { 
                 "#version ", 
-                strconv.itoa(buf[:], const.GL_MAJOR),
-                strconv.itoa(buf[:], const.GL_MINOR),
+                strconv.write_int(buf[:], const.GL_MAJOR, 10),
+                strconv.write_int(buf[:], const.GL_MINOR, 10),
                 "0 core"
             })
 
