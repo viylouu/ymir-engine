@@ -2,7 +2,7 @@
 
 const vec2 verts[6] = vec2[6](
         vec2(-1,-1), vec2(-1,1),
-        vec2(1.1), vec2(1,1),
+        vec2(1,1), vec2(1,1),
         vec2(1,-1), vec2(-1,-1)
     );
 
